@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'meiduo_mall.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '120.79.72.225', # 数据库主机
+        'HOST': '127.0.0.1', # 数据库主机
         'PORT': 3306, # 数据库端口口
-        'USER': 'meiduo', # 数据库用用户名
-        'PASSWORD': 'meiduo', # 数据库用用户密码
+        'USER': 'root', # 数据库用用户名
+        'PASSWORD': 'mysql', # 数据库用用户密码
         'NAME': 'meiduo_mail' # 数据库名字
     }
 }
