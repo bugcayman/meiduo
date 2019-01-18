@@ -11,12 +11,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+import os,sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
+sys.path.insert(0,os.path.join(BASE_DIR,'apps'))
+# print(BASE_DIR)
+# print(os.path)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -29,7 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definitionmeiduo_mall/meiduo_mall/settings/dev.py:25
 
 INSTALLED_APPS = [
     #原生
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework' ,#DRF
 
     #个人写的
-
+    'users.apps.UsersConfig'
 ]
 
 MIDDLEWARE = [
@@ -136,9 +137,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -194,3 +195,9 @@ LOGGING = {
         },
     }
 }
+REST_FRAMEWORK = {
+    # 异常处理
+    'EXCEPTION_HANDLER': 'meiduo_mall.utils.exceptions.exception_handler',
+}
+
+AUTH_USER_MODEL = 'users.User'
